@@ -9,7 +9,7 @@ def instructions_operations():
     ]
 
 @pytest.fixture
-def low_score():
+def low_score_exception():
     return [
         { "transaction": { "id": 1, "consumer_id": 10, "score": 150, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}},
         { "transaction": { "id": 2, "consumer_id": 10, "score": 100, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-03-13T10:00:00.000Z"}},
@@ -17,7 +17,15 @@ def low_score():
     ]
 
 @pytest.fixture
-def minimum_installments():
+def low_score_no_exception():
+    return [
+        { "transaction": { "id": 1, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}},
+        { "transaction": { "id": 2, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-03-13T10:00:00.000Z"}},
+        { "transaction": { "id": 3, "consumer_id": 10, "score": 900, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-04-13T10:00:00.000Z"}},
+    ]
+
+@pytest.fixture
+def minimum_installments_exception():
     return [
         { "transaction": { "id": 1, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 2, "time": "2019-02-13T10:00:00.000Z"}},
         { "transaction": { "id": 2, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 4, "time": "2019-03-13T10:00:00.000Z"}},
@@ -25,7 +33,15 @@ def minimum_installments():
     ]
 
 @pytest.fixture
-def compromised_income():
+def minimum_installments_no_exception():
+    return [
+        { "transaction": { "id": 1, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 10, "time": "2019-02-13T10:00:00.000Z"}},
+        { "transaction": { "id": 2, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 6, "time": "2019-03-13T10:00:00.000Z"}},
+        { "transaction": { "id": 3, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-04-13T10:00:00.000Z"}},
+    ]
+
+@pytest.fixture
+def compromised_income_exception():
     return [
         { "transaction": { "id": 1, "consumer_id": 10, "score": 600, "income": 2000, "requested_value": 10000, "installments": 10, "time": "2019-02-13T10:00:00.000Z"}},
         { "transaction": { "id": 2, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 10000, "installments": 8, "time": "2019-02-13T10:00:00.000Z"}},
@@ -33,9 +49,25 @@ def compromised_income():
     ]
 
 @pytest.fixture
-def double_transactions():
+def compromised_income_no_exception():
     return [
-        { "transaction": { "id": 1, "consumer_id": 10, "score": 150, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}},
-        { "transaction": { "id": 2, "consumer_id": 10, "score": 150, "income": 4000, "requested_value": 12000, "installments": 10, "time": "2019-03-13T10:00:00.000Z"}},
-        { "transaction": { "id": 3, "consumer_id": 10, "score": 150, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-04-13T10:01:30.000Z"}},
+        { "transaction": { "id": 1, "consumer_id": 10, "score": 600, "income": 2000, "requested_value": 5000, "installments": 10, "time": "2019-02-13T10:00:00.000Z"}},
+        { "transaction": { "id": 2, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 7000, "installments": 8, "time": "2019-02-13T10:00:00.000Z"}},
+        { "transaction": { "id": 3, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 1000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}},
+    ]
+
+@pytest.fixture
+def double_transactions_exception():
+    return [
+        { "transaction": { "id": 1, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}},
+        { "transaction": { "id": 2, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 12000, "installments": 10, "time": "2019-03-13T10:00:00.000Z"}},
+        { "transaction": { "id": 3, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-04-13T10:01:30.000Z"}},
+    ]
+
+@pytest.fixture
+def double_transactions_no_exception():
+    return [
+        { "transaction": { "id": 1, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 5000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}},
+        { "transaction": { "id": 2, "consumer_id": 5, "score": 400, "income": 5000, "requested_value": 10000, "installments": 10, "time": "2019-03-13T10:00:00.000Z"}},
+        { "transaction": { "id": 3, "consumer_id": 10, "score": 600, "income": 4000, "requested_value": 5000, "installments": 15, "time": "2019-04-13T10:01:30.000Z"}},
     ]
