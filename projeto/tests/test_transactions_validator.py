@@ -16,7 +16,6 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         """
         Configuração inicial antes da execução dos testes.
         """
-
         self.validator = validator.Validator()
 
 
@@ -25,9 +24,13 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `LowScoreException` seja lançada.
         """
+        entrada = LowScoreFixtures.use_cases_exception
+        saida_esperada = LowScoreFixtures.result_violation
+
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
 
         with pytest.raises(exceptions.LowScoreException):
-            self.validator.validateMany(LowScoreFixtures.use_cases_exception)
+            self.validator.validateMany(entrada)
 
 
     def test_compromised_income(self):
@@ -35,6 +38,10 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `CompromisedIncomeException` seja lançada.
         """
+        entrada = CompromisedIncomeFixtures.use_cases_exception
+        saida_esperada = CompromisedIncomeFixtures.result_violation
+
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
 
         with pytest.raises(exceptions.CompromisedIncomeException):
             self.validator.validateMany(CompromisedIncomeFixtures.use_cases_exception)
@@ -45,6 +52,10 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `MinimumInstallmentsException` seja lançada.
         """
+        entrada = MinimumInstallmentsFixtures.use_cases_exception
+        saida_esperada = MinimumInstallmentsFixtures.result_violation
+
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
 
         with pytest.raises(exceptions.MinimumInstallmentsException):
             self.validator.validateMany(MinimumInstallmentsFixtures.use_cases_exception)
@@ -55,6 +66,10 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `DoubleTransactionsException` seja lançada.
         """
+        entrada = DoubleTransactionsFixtures.use_cases_exception
+        saida_esperada = DoubleTransactionsFixtures.result_violation
+
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
 
         with pytest.raises(exceptions.DoubleTransactionsException):
             self.validator.validateMany(DoubleTransactionsFixtures.use_cases_exception)
@@ -70,7 +85,6 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
         """
         Configuração inicial antes da execução dos testes.
         """
-
         self.validator = validator.Validator()
 
 
@@ -79,13 +93,16 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `LowScoreException` não seja lançada.
         """
-
+        entrada = MinimumInstallmentsFixtures.use_cases_no_exception
+        saida_esperada = MinimumInstallmentsFixtures.result_success
         raised = False
+
         try:
-            self.validator.validateMany(LowScoreFixtures.use_cases_no_exception)
+            self.validator.validateMany(entrada)
         except exceptions.LowScoreException:
             raised = True
 
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
         self.assertFalse(raised)
 
 
@@ -94,13 +111,16 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `CompromisedIncomeException` não seja lançada.
         """
-
+        entrada = CompromisedIncomeFixtures.use_cases_no_exception
+        saida_esperada = CompromisedIncomeFixtures.result_success
         raised = False
+
         try:
             self.validator.validateMany(CompromisedIncomeFixtures.use_cases_no_exception)
         except exceptions.CompromisedIncomeException:
             raised = True
 
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
         self.assertFalse(raised)
 
 
@@ -109,13 +129,16 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `MinimumInstallmentsException` não seja lançada.
         """
-
+        entrada = MinimumInstallmentsFixtures.use_cases_no_exception
+        saida_esperada = MinimumInstallmentsFixtures.result_success
         raised = False
+
         try:
             self.validator.validateMany(MinimumInstallmentsFixtures.use_cases_no_exception)
         except exceptions.MinimumInstallmentsException:
             raised = True
 
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
         self.assertFalse(raised)
 
 
@@ -124,12 +147,15 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
         Método que testa os casos em que é esperada que a exceção
         `DoubleTransactionsException` não seja lançada.
         """
-
+        entrada = DoubleTransactionsFixtures.use_cases_no_exception
+        saida_esperada = DoubleTransactionsFixtures.result_success
         raised = False
+
         try:
             self.validator.validateMany(DoubleTransactionsFixtures.use_cases_no_exception)
         except exceptions.DoubleTransactionsException:
             raised = True
 
+        self.assertListEqual(self.validator.validateMany(entrada), saida_esperada)
         self.assertFalse(raised)
 
