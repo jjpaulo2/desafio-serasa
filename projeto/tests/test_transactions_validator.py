@@ -1,6 +1,10 @@
 import pytest, unittest
 from transactions_validator import validator, exceptions
-from tests.fixtures.fixture_transaction_validator import *
+from .fixtures.fixture_transaction_validator import ( ChallengeFixtures, 
+                                                      CompromisedIncomeFixtures, 
+                                                      LowScoreFixtures,
+                                                      DoubleTransactionsFixtures,
+                                                      MinimumInstallmentsFixtures ) 
 
 class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
     """
@@ -23,7 +27,7 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         """
 
         with pytest.raises(exceptions.LowScoreException):
-            self.validator.validateMany(low_score_exception)
+            self.validator.validateMany(LowScoreFixtures.use_cases_exception)
 
 
     def test_compromised_income(self):
@@ -33,7 +37,7 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         """
 
         with pytest.raises(exceptions.CompromisedIncomeException):
-            self.validator.validateMany(compromised_income_exception)
+            self.validator.validateMany(CompromisedIncomeFixtures.use_cases_exception)
 
 
     def test_minimum_installments(self):
@@ -43,7 +47,7 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         """
 
         with pytest.raises(exceptions.MinimumInstallmentsException):
-            self.validator.validateMany(minimum_installments_exception)
+            self.validator.validateMany(MinimumInstallmentsFixtures.use_cases_exception)
 
 
     def test_double_transactions(self):
@@ -53,7 +57,7 @@ class TestTransactionsValidatorExceptionExpected(unittest.TestCase):
         """
 
         with pytest.raises(exceptions.DoubleTransactionsException):
-            self.validator.validateMany(double_transactions_exception)
+            self.validator.validateMany(DoubleTransactionsFixtures.use_cases_exception)
 
 
 class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
@@ -78,7 +82,7 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
 
         raised = False
         try:
-            self.validator.validateMany(low_score_no_exception)
+            self.validator.validateMany(LowScoreFixtures.use_cases_no_exception)
         except exceptions.LowScoreException:
             raised = True
 
@@ -93,7 +97,7 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
 
         raised = False
         try:
-            self.validator.validateMany(compromised_income_no_exception)
+            self.validator.validateMany(CompromisedIncomeFixtures.use_cases_no_exception)
         except exceptions.CompromisedIncomeException:
             raised = True
 
@@ -108,7 +112,7 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
 
         raised = False
         try:
-            self.validator.validateMany(minimum_installments_no_exception)
+            self.validator.validateMany(MinimumInstallmentsFixtures.use_cases_no_exception)
         except exceptions.MinimumInstallmentsException:
             raised = True
 
@@ -123,7 +127,7 @@ class TestTransactionsValidatorExceptionNotExpected(unittest.TestCase):
 
         raised = False
         try:
-            self.validator.validateMany(double_transactions_no_exception)
+            self.validator.validateMany(DoubleTransactionsFixtures.use_cases_no_exception)
         except exceptions.DoubleTransactionsException:
             raised = True
 
