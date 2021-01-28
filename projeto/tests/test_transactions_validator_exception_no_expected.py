@@ -22,9 +22,12 @@ def test_low_score(transaction, expected_return):
         transaction_data = transaction['transaction']
         validator_object.verify_low_score(transaction_data)
 
+        returned = validator_object.validateOne(transaction)
+
     except exceptions.LowScoreException:
         raised = True
 
+    assert returned == expected_return
     assert raised == False
 
 @pytest.mark.parametrize("transaction,expected_return", compromised_income_data)
@@ -40,9 +43,12 @@ def test_compromised_income(transaction, expected_return):
         transaction_data = transaction['transaction']
         validator_object.verify_compromised_income(transaction_data)
 
+        returned = validator_object.validateOne(transaction)
+
     except exceptions.CompromisedIncomeException:
         raised = True
 
+    assert returned == expected_return
     assert raised == False
 
 
@@ -59,9 +65,12 @@ def test_minimum_installments(transaction, expected_return):
         transaction_data = transaction['transaction']
         validator_object.verify_minimum_installments(transaction_data)
 
+        returned = validator_object.validateOne(transaction)
+
     except exceptions.MinimumInstallmentsException:
         raised = True
 
+    assert returned == expected_return
     assert raised == False
 
 
@@ -78,7 +87,10 @@ def test_double_transactions(transaction, expected_return):
         transaction_data = transaction['transaction']
         validator_object.verify_double_transactions(transaction_data)
 
+        returned = validator_object.validateOne(transaction)
+
     except exceptions.DoubleTransactionsException:
         raised = True
 
+    assert returned == expected_return
     assert raised == False
