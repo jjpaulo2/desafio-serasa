@@ -31,7 +31,7 @@ _use_cases_exception: List[dict] = [
 # Casos de uso que não devem lançar exceção
 _use_cases_no_exception: List[dict] = [
     { "transaction": { "id": 1, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 10, "time": "2019-02-13T10:00:00.000Z"}},
-    { "transaction": { "id": 2, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 6, "time": "2019-03-13T10:00:00.000Z"}},
+    { "transaction": { "id": 2, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 5000, "installments": 6, "time": "2019-03-13T10:00:00.000Z"}},
     { "transaction": { "id": 3, "consumer_id": 10, "score": 400, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-04-13T10:00:00.000Z"}},
 ]
 
