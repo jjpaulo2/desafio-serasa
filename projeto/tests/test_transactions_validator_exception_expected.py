@@ -53,13 +53,13 @@ def test_minimum_installments(transaction, expected_return):
         validator_object.verify_minimum_installments(transaction_data)
 
 
-@pytest.mark.parametrize("transaction,expected_return", double_transactions_data)
-def test_double_transactions(transaction, expected_return):
+@pytest.mark.parametrize("transaction,expected_return,starter_history", double_transactions_data)
+def test_double_transactions(transaction, expected_return, starter_history):
     """
     Método que testa os casos em que é esperada que a exceção
     `DoubleTransactionsException` seja lançada.
     """
-    validator_object = validator.Validator()
+    validator_object = validator.Validator(starter_history=starter_history)
 
     assert validator_object.validateOne(transaction) == expected_return
 
