@@ -45,13 +45,15 @@ Existe uma bateria de testes escrita com o auxílio da biblioteca **Pytest**. Vo
 
 ### Documentação
 
-Também existe uma ***autodoc*** gerada com o auxílio da biblioteca **Sphinx**. Em [`docs/build/html`](./docs/html) você deve encontrar esta documentação. Ela apenas exibe os conteúdo das ***docstrings*** dos módulos, classes e funções.
+Também existe uma ***autodoc*** gerada com o auxílio da biblioteca **Sphinx**. Em [`docs/source`](./docs/source) você deve encontrar o código-fonte desta documentação. Ela apenas exibe os conteúdo das ***docstrings*** dos módulos, classes e funções.
 
 Para compilar o conteúdo da documentação, apenas digite o seguinte comando.
 
 ```shell
 (projeto-v-BZcsMM) $ make html
 ```
+ 
+ Este comando gera a documentação html em `docs/html` e automaticamente move ela para `../docs` para ficar visível no [**GitHub Pages**](https://jjpaulo2.github.io/desafio-serasa/).
 
 ## Exemplo de uso
 
