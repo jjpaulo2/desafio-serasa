@@ -63,7 +63,7 @@ class MinimumInstallmentsException(Exception):
 
 class DoubleTransactionsException(Exception):
     """
-    Exceção invocada quando a mesma transação ocorrer em menos de 2 minutos.
+    Exceção invocada quando a mesma transação tiver sido aprovada em menos de 2 minutos.
 
     Atributos:
         id (int): Identificação da transação
