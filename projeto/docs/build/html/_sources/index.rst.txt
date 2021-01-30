@@ -1,0 +1,32 @@
+.. transactions-validator documentation master file, created by
+   sphinx-quickstart on Sat Jan 30 02:52:14 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+=====================================================
+Bem-vindo(a) à documentação do projeto `teste-serasa`
+=====================================================
+
+Documentação gerada automaticamente com **Sphinx** que lê
+as docstrings dos módulos, classes e métodos.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Módulo de validação
+
+   transactions_validator/validator.rst
+   transactions_validator/exceptions.rst
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Testes unitários
+
+   tests/test_transactions_validator_exception_expected.rst
+   tests/test_transactions_validator_exception_not_expected.rst
+
+
+Índices de módulos 
+==================
+
+* :ref:`modindex`

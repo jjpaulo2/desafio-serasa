@@ -1,0 +1,6 @@
+Módulo `transactions_validator`
+===============================
+
+.. automodule:: transactions_validator
+   :members:
+   :private-members:

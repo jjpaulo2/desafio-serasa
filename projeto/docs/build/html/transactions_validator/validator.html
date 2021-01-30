@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-br" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Classe de validação &mdash; teste-serasa  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Erros e exceções" href="exceptions.html" />
+    <link rel="prev" title="Bem-vindo(a) à documentação do projeto teste-serasa" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> teste-serasa
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Módulo de validação</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Classe de validação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Erros e exceções</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Testes unitários</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tests/test_transactions_validator_exception_expected.html">Testes que devem lançar <em>exceção</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tests/test_transactions_validator_exception_not_expected.html">Testes que <em>não</em> devem lançar <em>exceção</em></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">teste-serasa</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Classe de validação</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/transactions_validator/validator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-transactions_validator.validator">
+<span id="classe-de-validacao"></span><h1>Classe de validação<a class="headerlink" href="#module-transactions_validator.validator" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="transactions_validator.validator.Validator">
+<em class="property">class </em><code class="sig-prename descclassname">transactions_validator.validator.</code><code class="sig-name descname">Validator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">starter_history</span><span class="p">:</span> <span class="n">List<span class="p">[</span>dict<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classe que contém os métodos responsáveis por validar as transações
+no formato <cite>json/dict</cite>.</p>
+<dl class="simple">
+<dt>Atributos:</dt><dd><p>history (list): Pilha que guarda o histórico das transações processadas pela classe.</p>
+</dd>
+<dt>Métodos:</dt><dd><p>validateOne(transaction: dict) (dict)
+validateMany(transactions: List[dict]) (List[dict])</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.history">
+<em class="property">property </em><code class="sig-name descname">history</code><a class="headerlink" href="#transactions_validator.validator.Validator.history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pilha do histórico de transações já processadas.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.validateMany">
+<code class="sig-name descname">validateMany</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transactions</span><span class="p">:</span> <span class="n">List<span class="p">[</span>dict<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator.validateMany" title="Permalink to this definition">¶</a></dt>
+<dd><p>Método que executa as funções de validação em uma lista de transações.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.validateOne">
+<code class="sig-name descname">validateOne</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transaction</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator.validateOne" title="Permalink to this definition">¶</a></dt>
+<dd><p>Método que executa as funções de validação em uma única transação.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.verify_compromised_income">
+<code class="sig-name descname">verify_compromised_income</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transaction_data</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator.verify_compromised_income" title="Permalink to this definition">¶</a></dt>
+<dd><p>Método que faz a validação da renda. Se o valor das parcelas superar
+30% da renda informada, será lançada a exceção <cite>CompromisedIncomeException</cite>.</p>
+<dl class="simple">
+<dt>Argumentos:</dt><dd><p>transaction_data (dict): dados da transação em formato json/dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.verify_double_transactions">
+<code class="sig-name descname">verify_double_transactions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transaction_data</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator.verify_double_transactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Método que verifica transações duplicadas. Se a mesma transação houver sido
+solicidata em menos de 2 minutos, será lançada a exceção <cite>DoubleTransactionsException</cite>.</p>
+<dl class="simple">
+<dt>Argumentos:</dt><dd><p>transaction_data (dict): dados da transação em formato json/dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.verify_low_score">
+<code class="sig-name descname">verify_low_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transaction_data</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator.verify_low_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Método que faz a validação do score. Se o score for menor que 200,
+será lançada a exceção <cite>LowScoreException</cite>.</p>
+<dl class="simple">
+<dt>Argumentos:</dt><dd><p>transaction_data (dict): dados da transação em formato json/dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="transactions_validator.validator.Validator.verify_minimum_installments">
+<code class="sig-name descname">verify_minimum_installments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">transaction_data</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#transactions_validator.validator.Validator.verify_minimum_installments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Método que faz a validação da quantidade de parcelas. Se a quantidade de
+parcelas for menor que 6, será lançada a exceção <cite>MinimumInstallmentsException</cite>.</p>
+<dl class="simple">
+<dt>Argumentos:</dt><dd><p>transaction_data (dict): dados da transação em formato json/dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Erros e exceções" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Bem-vindo(a) à documentação do projeto teste-serasa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, João Paulo Carvalho.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
