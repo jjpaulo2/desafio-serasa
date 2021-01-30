@@ -57,7 +57,8 @@ $ (projeto-v-BZcsMM) python -m transactions_validator --help
 
     usage: transactions_validator [-h]
 
-    Módulo que faz a verificação de uma transação de solicitação de crédito. A transação deve ser inserida em um json seguindo o seguinte formato:
+    Módulo que faz a verificação de uma transação de solicitação de crédito. 
+    A transação deve ser inserida em um json seguindo o seguinte formato:
         { 
             "transaction": {
                 "id": int, 
@@ -76,7 +77,10 @@ $ (projeto-v-BZcsMM) python -m transactions_validator --help
         - valor das parcelas não pode ultrapassar 30% da renda
         - não tiver sido aprovada em menos de 2 minutos atrás
 
-    A forma recomendada de utilizar este programa é criando um arquivo de texto contendo cada transação em uma linha, adotando o formato descrito acima. Contudo, também é possível utilizar o programa apenas o executando direto e inserir manualmente o json da transação no console.
+    A forma recomendada de utilizar este programa é criando um arquivo de texto
+    contendo cada transação em uma linha, adotando o formato descrito acima.
+    Contudo, também é possível utilizar o programa apenas o executando direto e
+    inserir manualmente o json da transação no console.
 
     [...]
 
@@ -90,17 +94,17 @@ Você pode utilizar a ferramenta de duas formas:
 ```shell
 # EXEMPLO DO PRIMEIRO USO
 
-(projeto-v-BZcsMM) $ python -m transactions_validator
+>>> (projeto-v-BZcsMM) $ python -m transactions_validator
 
 # Json inserido manualmente no console
-{ "transaction": { "id": 1, "consumer_id": 10, "score": 150, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}} 
+>>> { "transaction": { "id": 1, "consumer_id": 10, "score": 150, "income": 4000, "requested_value": 10000, "installments": 15, "time": "2019-02-13T10:00:00.000Z"}} 
 
 # Retorno da ferramenta
-{'transaction': {'id': 1, 'violations': ['low-score']}} 
+<<< {'transaction': {'id': 1, 'violations': ['low-score']}} 
 
 # Usuário pressiona Ctrl+C
-^C
-Programa encerrado pelo usuário.
+>>> ^C
+<<< Programa encerrado pelo usuário.
 ```
 
 2) Criando um arquivo de texto com um json por linha e passando ele para o comando. 
@@ -120,4 +124,16 @@ Passando o arquivo para o módulo:
 
 ```shell
 (projeto-v-BZcsMM) $ python -m transactions_validator < transacoes.txt
+```
+
+Retorno do programa:
+
+```
+{'transaction': {'id': 1, 'violations': ['low-score']}}
+{'transaction': {'id': 2, 'violations': ['minimum-installments']}}
+{'transaction': {'id': 3, 'violations': ['compromised-income']}}
+{'transaction': {'id': 4, 'success': 'Transação realizada com sucesso!'}}
+{'transaction': {'id': 5, 'success': 'Transação realizada com sucesso!'}}
+{'transaction': {'id': 6, 'success': 'Transação realizada com sucesso!'}}
+{'transaction': {'id': 7, 'violations': ['double-transactions']}}
 ```
