@@ -47,12 +47,18 @@ Existe uma bateria de testes escrita com o auxílio da biblioteca **Pytest**. Vo
 
 Também existe uma ***autodoc*** gerada com o auxílio da biblioteca **Sphinx**. Em [`docs/build/html`](./docs/build/html) você deve encontrar esta documentação. Ela apenas exibe os conteúdo das ***docstrings*** dos módulos, classes e funções.
 
+Para compilar o conteúdo da documentação, apenas digite o seguinte comando.
+
+```shell
+(projeto-v-BZcsMM) $ make html
+```
+
 ## Exemplo de uso
 
 O módulo [`transactions_validator`](./transactions_validator) pode ser facilmente utilizado como cliente de linha de comando.
 
 ```shell
-$ (projeto-v-BZcsMM) python -m transactions_validator --help
+(projeto-v-BZcsMM) $ python -m transactions_validator --help
 ```
 
     usage: transactions_validator [-h]
