@@ -6,7 +6,9 @@ Neste projeto você vai encontrar os seguintes módulos:
 - [`tests`](./tests)
 - [`docs`](./docs)
 
-## Dependências
+## Testes e build
+
+### Dependências
 
 As dependências do projeto estão gerenciadas via **Pipenv**, que permite a utilização de ambiente virtuais de forma mais cômoda. Então, primeiramente garanta que você tenha ele instalado em sua máquina.
 
